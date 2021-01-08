@@ -23,27 +23,27 @@ public class StudentController {
 	@Autowired
 	private StudentRepository studentRepository;
 	
-	@GetMapping("/students")
+	@GetMapping("/getAllStudent")
 	public List<Student> getAllStudent(){
 		return (List<Student>) studentRepository.findAll();
 	}
-	@GetMapping("/students/{id}")
+	@GetMapping("/getAllStudent/{id}")
 	public Optional<Student> getStudentById(@PathVariable Integer id) {
 		return studentRepository.findById(id);
 	} 
-	@PostMapping("/students")
+	@PostMapping("/addStudent")
 	public void addstudent(@RequestBody Student student) {
 		studentRepository.save(student);
 	}
-	@PutMapping("/students")
+	@PutMapping("/updateStudent")
 	public void updatestudent(
 			@PathVariable("id") Integer id,
 			@RequestBody Student student) {
-		studentRepository.save(student);
+		studentRepository.save(student); 
 	}
-	@DeleteMapping("/students/{id}")
+	@DeleteMapping("/deleteStudent/{id}")
 	public void deletestudent(@PathVariable("id") Integer id) {
 		studentRepository.deleteById(id); 
-	}
+	} 
 
 }
