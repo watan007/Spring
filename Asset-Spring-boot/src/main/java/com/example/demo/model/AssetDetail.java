@@ -4,11 +4,13 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class AssetDetail {
 	@Id
+	@GeneratedValue
 	private int id;
 	@Column
 	private String AssetName;
@@ -26,7 +28,7 @@ public class AssetDetail {
 		EndTime = endTime;
 		this.severity = severity;
 	}
-	public AssetDetail(String string, String string2, String string3, String string4) {
+	public AssetDetail() {
 		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
@@ -63,6 +65,18 @@ public class AssetDetail {
 	public String toString() {
 		return "AssetDetail [id=" + id + ", AssetName=" + AssetName + ", StartTime=" + StartTime + ", EndTime="
 				+ EndTime + ", severity=" + severity + "]";
+	}
+	public void setStartTime(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setEndTime(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setSeverity(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

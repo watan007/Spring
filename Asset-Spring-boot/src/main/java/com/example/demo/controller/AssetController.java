@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -22,12 +23,14 @@ import org.supercsv.prefs.CsvPreference;
 
 import com.example.demo.model.AssetDetail;
 import com.example.demo.repository.AssetRepository;
+import com.example.demo.service.AssetService;
 
 @RestController
 public class AssetController {
 	
 	@Autowired
 	private AssetRepository assetRepository;
+	private AssetService assetService;
 	
 	@GetMapping("/assets")
 	public List<AssetDetail> getallAsset(){
@@ -49,35 +52,15 @@ public class AssetController {
 		assetRepository.deleteById(id);
 	}
 	
-	@GetMapping("/downloadcsv")
-	public void downloadCsv(HttpServletResponse response) throws IOException {
-		response.setContentType("text/csv");
-		response.setHeader("Content-Disposition", "attachment; filename=input.csv");
-		
-		ICsvBeanWriter csvWriter=new CsvBeanWriter(response.getWriter(),CsvPreference.STANDARD_PREFERENCE);
-		
-		String[] header= {"Asset Name", "Start Time", "End Time", "Severity"};
-		
-		String[] pojoclassPropertyName= {"AssetName", "StartTime", "EndTime", "severity"};
-		
-		csvWriter.writeHeader(header);
-		
-		List<AssetDetail> assetDetails= listAssetstats();
-		
-		
-		
+	@RequestMapping(path="feedAssetData")
+	public void setAssetdatadb() throws IOException {
+		assetService.saveAssetData();
 	}
+		
 
-	private List<AssetDetail> listAssetstats() {
 		
-		List<AssetDetail> assetDetail=new ArrayList<AssetDetail>();
-		assetDetail.add(new AssetDetail("System1", "01-04-2019  08:10:00", "01-04-2019  08:31:00", "1"));
-		assetDetail.add(new AssetDetail("System2", "01-04-2019  08:45:00", "01-04-2019  08:45:00", "2"));
-		assetDetail.add(new AssetDetail("System2", "01-04-2019  13:26:00", "01-04-2019  13:26:00", "2"));
-		assetDetail.add(new AssetDetail("System2", "01-04-2019  21:05:00", "01-04-2019  21:54:00", "2"));
-		assetDetail.add(new AssetDetail("System3", "01-04-2019  09:05:00", "01-04-2019  10:43:00", "3"));
-		return null;
-	}
-	
+		
+		
+		
 
 }
