@@ -15,12 +15,12 @@ public class AssetDetail {
 	@Column
 	private String AssetName;
 	@Column
-	private LocalDateTime StartTime;
+	private String StartTime;
 	@Column
-	private LocalDateTime EndTime;
+	private String EndTime;
 	@Column
-	private int severity;
-	public AssetDetail(int id, String assetName, LocalDateTime startTime, LocalDateTime endTime, int severity) {
+	private String severity;
+	public AssetDetail(int id, String assetName, String startTime, String endTime, String severity) {
 		super();
 		this.id = id;
 		AssetName = assetName;
@@ -43,22 +43,22 @@ public class AssetDetail {
 	public void setAssetName(String assetName) {
 		AssetName = assetName;
 	}
-	public LocalDateTime getStartTime() {
+	public String getStartTime() {
 		return StartTime;
 	}
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(String startTime) {
 		StartTime = startTime;
 	}
-	public LocalDateTime getEndTime() {
+	public String getEndTime() {
 		return EndTime;
 	}
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(String endTime) {
 		EndTime = endTime;
 	}
-	public int getSeverity() {
+	public String getSeverity() {
 		return severity;
 	}
-	public void setSeverity(int severity) {
+	public void setSeverity(String severity) {
 		this.severity = severity;
 	}
 	@Override
@@ -66,17 +66,7 @@ public class AssetDetail {
 		return "AssetDetail [id=" + id + ", AssetName=" + AssetName + ", StartTime=" + StartTime + ", EndTime="
 				+ EndTime + ", severity=" + severity + "]";
 	}
-	public void setStartTime(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setEndTime(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setSeverity(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 	
 }

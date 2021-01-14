@@ -30,6 +30,7 @@ public class AssetController {
 	
 	@Autowired
 	private AssetRepository assetRepository;
+	@Autowired
 	private AssetService assetService;
 	
 	@GetMapping("/assets")
@@ -56,11 +57,6 @@ public class AssetController {
 	public void setAssetdatadb() throws IOException {
 		assetService.saveAssetData();
 	}
-		
-
-		
-		
-		
-		
+	
 
 }

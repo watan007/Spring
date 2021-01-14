@@ -4,18 +4,22 @@ public class AssetStatus {
 	
 	private String AssetName;
 
-    private Long totalIncidents;
+    private String totalIncidents;
 
-    private double totalUpTime;
+    private String totalUpTime;
 
-    private Long rating;
+    private String rating;
 
-	public AssetStatus(String assetName, Long totalIncidents, double totalUpTime, Long rating) {
+	public AssetStatus(String assetName, String totalIncidents, String totalUpTime, String rating) {
 		super();
 		AssetName = assetName;
 		this.totalIncidents = totalIncidents;
 		this.totalUpTime = totalUpTime;
 		this.rating = rating;
+	}
+
+	public AssetStatus() {
+		
 	}
 
 	public String getAssetName() {
@@ -26,27 +30,27 @@ public class AssetStatus {
 		AssetName = assetName;
 	}
 
-	public Long getTotalIncidents() {
+	public String getTotalIncidents() {
 		return totalIncidents;
 	}
 
-	public void setTotalIncidents(Long totalIncidents) {
+	public void setTotalIncidents(String totalIncidents) {
 		this.totalIncidents = totalIncidents;
 	}
 
-	public double getTotalUpTime() {
+	public String getTotalUpTime() {
 		return totalUpTime;
 	}
 
-	public void setTotalUpTime(double totalUpTime) {
+	public void setTotalUpTime(String totalUpTime) {
 		this.totalUpTime = totalUpTime;
 	}
 
-	public Long getRating() {
+	public String getRating() {
 		return rating;
 	}
 
-	public void setRating(Long rating) {
+	public void setRating(String rating) {
 		this.rating = rating;
 	}
 
@@ -55,8 +59,8 @@ public class AssetStatus {
 		return "AssetStatus [AssetName=" + AssetName + ", totalIncidents=" + totalIncidents + ", totalUpTime="
 				+ totalUpTime + ", rating=" + rating + "]";
 	}
-    
-    
+	
+	
     
     
 
