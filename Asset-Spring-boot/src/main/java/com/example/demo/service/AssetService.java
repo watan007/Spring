@@ -5,11 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.AssetDetail;
+import com.example.demo.model.AssetStatus;
 import com.example.demo.repository.AssetRepository;
 
 @Service
@@ -17,6 +19,10 @@ public class AssetService {
 	
 	@Autowired
 	private AssetRepository assetrepository;
+	@Autowired
+	private AssetDetail assetDetail;
+	@Autowired
+	private AssetStatus assetStatus;
 	
 	String line ="";
 	
@@ -39,8 +45,13 @@ public class AssetService {
 		}
 	}
 	
+	public void totalIncidentsOfAsset(String AssetName) {
+		
+	}
 	
-		
-		
+	public void totalUptimeForAsset(String assetName) {
+        
+	}
+	
 
 }
